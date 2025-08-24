@@ -1,19 +1,28 @@
-
+-- Completion source for LAMMPS
 local source = {}
-local lammps_cmds = {
-  "atom_style", "boundary", "create_atoms", "create_box",
-  "compute", "fix", "unfix", "group", "lattice", "log",
-  "mass", "minimize", "pair_style", "pair_coeff", "pair_modify",
-  "read_data", "read_restart", "region", "reset_timestep", "run",
-  "thermo", "thermo_style", "thermo_modify", "timestep",
-  "units", "variable", "velocity", "write_data", "write_restart",
-  "dump", "undump", "if", "then", "else", "label", "jump"
+
+local commands = {
+  "run", "fix", "unfix", "compute", "variable", "region", "group",
+  "pair_style", "pair_coeff", "bond_style", "angle_style",
+  "dihedral_style", "improper_style", "timestep", "thermo", "dump",
+  "restart", "read_data", "write_data", "velocity", "minimize",
+  "fix ave/time", "fix nvt", "fix nve", "fix npt"
 }
+
+function source:is_available()
+  return vim.bo.filetype == "lammps"
+end
+
+function source:get_debug_name()
+  return "lammps"
+end
+
 function source:complete(_, callback)
   local items = {}
-  for _, cmd in ipairs(lammps_cmds) do
-    table.insert(items, { label = cmd, kind = require('cmp').lsp.CompletionItemKind.Keyword })
+  for _, cmd in ipairs(commands) do
+    table.insert(items, { label = cmd, kind = vim.lsp.protocol.CompletionItemKind.Keyword })
   end
   callback({ items = items, isIncomplete = false })
 end
+
 return source

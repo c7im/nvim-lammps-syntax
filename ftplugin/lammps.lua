@@ -1,8 +1,5 @@
-
-vim.cmd [[
-  augroup lammps_detect
-    autocmd!
-    autocmd BufRead,BufNewFile *.in,*.lmp set filetype=lammps
-  augroup END
-]]
-vim.opt.foldmethod = 'syntax'
+-- FileType plugin for LAMMPS
+vim.bo.expandtab = true
+vim.bo.shiftwidth = 2
+vim.bo.tabstop = 2
+vim.wo.foldmethod = "syntax"

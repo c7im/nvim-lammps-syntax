@@ -1,27 +1,30 @@
+# nvim-lammps-syntax
 
-# nvim-lammps-syntax (розширена версія)
+Syntax highlighting and completion for [LAMMPS](https://lammps.sandia.gov) input scripts in Neovim.
 
-Плагін для Neovim з підтримкою LAMMPS input scripts (.in, .lmp).
+## Installation
 
-## Функції
-- Підсвітка команд LAMMPS по категоріях
-- Числа, змінні, коментарі
-- Автокомпліт через nvim-cmp
-- Folding для великих скриптів
+With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
-## Встановлення
-### Packer
 ```lua
-use 'c7im/nvim-lammps-syntax'
-```
-### Lazy
-```lua
-{ 'c7im/nvim-lammps-syntax', ft = 'lammps' }
+{
+  "yourusername/nvim-lammps-syntax",
+  config = function()
+    -- nothing special required
+  end
+}
 ```
 
-## Інтеграція з nvim-cmp
+With [packer.nvim](https://github.com/wbthomason/packer.nvim):
+
 ```lua
-local cmp = require('cmp')
-cmp.setup.filetype('lammps', { sources = cmp.config.sources({ { name = 'lammps' } }) })
-cmp.register_source('lammps', require('lammps.cmp'))
+use "yourusername/nvim-lammps-syntax"
 ```
+
+## Features
+- Syntax highlighting (`syntax/lammps.vim`)
+- File detection (`*.in`, `*.lmp` → `lammps`)
+- Autocompletion source for `nvim-cmp`
+
+## License
+MIT
