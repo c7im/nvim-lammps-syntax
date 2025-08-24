@@ -8,7 +8,7 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
 {
-  "yourusername/nvim-lammps-syntax",
+  "c7im/nvim-lammps-syntax",
   config = function()
     -- nothing special required
   end
@@ -18,7 +18,7 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 With [packer.nvim](https://github.com/wbthomason/packer.nvim):
 
 ```lua
-use "yourusername/nvim-lammps-syntax"
+use "c7im/nvim-lammps-syntax"
 ```
 
 ## Features
